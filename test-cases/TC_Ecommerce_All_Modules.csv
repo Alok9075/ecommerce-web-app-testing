@@ -1,0 +1,56 @@
+TC ID	Module	Test Scenario	Test Case Description	Preconditions	Test Steps	Expected Result	Actual Result	Status	Priority
+TC-001	Registration	Valid Registration	Verify user can register with valid data	App is open	1. Go to Register page 2. Enter valid name/email/password/mobile 3. Click Register	User registered successfully and redirected to login	As Expected	Pass	High
+TC-002	Registration	Duplicate Email	Verify error on duplicate email	App is open	1. Register with existing email 2. Click Register	Error message: Email already exists	As Expected	Pass	High
+TC-003	Registration	Empty Fields	Verify error when fields are empty	App is open	1. Leave all fields blank 2. Click Register	Validation errors shown for each field	As Expected	Pass	High
+TC-004	Registration	Invalid Email Format	Verify error on invalid email	App is open	1. Enter abc@@ as email 2. Click Register	Error: Enter a valid email address	As Expected	Pass	Medium
+TC-005	Registration	Weak Password	Verify password strength validation	App is open	1. Enter password: 1234 2. Click Register	Error: Password must be at least 8 chars	As Expected	Pass	Medium
+TC-006	Registration	Mobile Number Validation	Verify 10-digit mobile required	App is open	1. Enter 6-digit mobile 2. Click Register	Error: Enter valid 10-digit mobile number	As Expected	Pass	Medium
+TC-007	Login	Valid Login	Verify login with correct credentials	User registered	1. Enter correct email & password 2. Click Login	User logged in and redirected to homepage	As Expected	Pass	High
+TC-008	Login	Invalid Password	Verify error on wrong password	User registered	1. Enter correct email 2. Enter wrong password 3. Click Login	Error: Invalid credentials	As Expected	Pass	High
+TC-009	Login	Unregistered Email	Verify error for unregistered email	App is open	1. Enter email not in system 2. Enter any password 3. Click Login	Error: User not found	As Expected	Pass	High
+TC-010	Login	Empty Login Fields	Verify validation on empty login form	App is open	1. Leave email and password empty 2. Click Login	Validation errors displayed	As Expected	Pass	Medium
+TC-011	Product Search	Search with Valid Keyword	Verify products appear for valid keyword	User logged in	1. Type 'laptop' in search bar 2. Press Enter	Relevant products displayed	As Expected	Pass	High
+TC-012	Product Search	Search with No Results	Verify no results message	User logged in	1. Type 'xyzabc123' in search bar 2. Press Enter	Message: No products found	As Expected	Pass	Medium
+TC-013	Product Search	Empty Search	Verify behavior on empty search	User logged in	1. Clear search bar 2. Press Enter	All products displayed or prompt to enter keyword	As Expected	Pass	Low
+TC-014	Product Search	Filter by Category	Verify category filter works	User logged in	1. Select Electronics from category dropdown 2. Apply filter	Only electronics products displayed	As Expected	Pass	High
+TC-015	Product Search	Filter by Price Range	Verify price filter	User logged in	1. Set price range 500-2000 2. Apply filter	Only products in price range shown	As Expected	Pass	Medium
+TC-016	Product Search	Sort by Price Low to High	Verify sorting	User logged in	1. Select Sort: Price Low to High	Products displayed in ascending price order	As Expected	Pass	Medium
+TC-017	Product Search	Sort by Price High to Low	Verify descending sort	User logged in	1. Select Sort: Price High to Low	Products displayed in descending price order	As Expected	Pass	Medium
+TC-018	Product Detail	View Product Details	Verify product detail page	User logged in	1. Click on any product	Product name/image/price/description displayed correctly	As Expected	Pass	High
+TC-019	Product Detail	Out of Stock Product	Verify OOS product handling	User logged in	1. Click on out-of-stock product	Out of Stock label shown and Add to Cart button disabled	As Expected	Pass	High
+TC-020	Product Detail	Product Image Display	Verify product images load	User logged in	1. Open any product detail page	Product images load correctly without broken links	As Expected	Pass	Medium
+TC-021	Cart	Add Item to Cart	Verify item added to cart	User logged in	1. Open product 2. Click Add to Cart	Item added and cart count incremented	As Expected	Pass	High
+TC-022	Cart	Add Same Item Twice	Verify quantity updates	User logged in	1. Add same product twice	Quantity increases to 2 instead of duplicate entry	As Expected	Pass	High
+TC-023	Cart	Remove Item from Cart	Verify item removal	Item in cart	1. Open cart 2. Click Remove on item	Item removed and total updated	As Expected	Pass	High
+TC-024	Cart	Update Quantity in Cart	Verify quantity update	Item in cart	1. Change quantity from 1 to 3 in cart	Quantity and total price updated correctly	As Expected	Pass	High
+TC-025	Cart	Cart Total Calculation	Verify cart total	Multiple items in cart	1. Add 3 items with known prices 2. Open cart	Total = sum of all item prices * quantities	As Expected	Pass	High
+TC-026	Cart	Add Out of Stock Item	Verify OOS item cannot be added	User logged in	1. Open OOS product 2. Click Add to Cart	Button disabled or error shown	As Expected	Pass	High
+TC-027	Cart	Empty Cart Checkout	Verify checkout blocked on empty cart	Cart is empty	1. Go to cart 2. Click Checkout	Error: Your cart is empty	As Expected	Pass	Medium
+TC-028	Cart	Cart Persists After Logout	Verify cart saved after login/logout	Item in cart	1. Add item 2. Logout 3. Login again 4. Open cart	Cart items still present	Fail	Pass	Medium
+TC-029	Checkout	Valid Address Entry	Verify address can be added	User logged in	1. Proceed to checkout 2. Enter valid address 3. Save	Address saved and selected for delivery	As Expected	Pass	High
+TC-030	Checkout	Missing Address Fields	Verify validation on address form	User logged in	1. Leave address fields blank 2. Proceed	Validation errors shown for required fields	As Expected	Pass	High
+TC-031	Checkout	Select Payment Method - UPI	Verify UPI payment option	Address selected	1. Select UPI 2. Enter UPI ID 3. Proceed	UPI payment page loads correctly	As Expected	Pass	High
+TC-032	Checkout	Select Payment Method - COD	Verify COD option	Address selected	1. Select Cash on Delivery 2. Place Order	Order placed with COD status	As Expected	Pass	High
+TC-033	Checkout	Select Payment Method - Card	Verify card payment	Address selected	1. Select Credit/Debit Card 2. Enter card details 3. Proceed	Payment processed successfully	As Expected	Pass	High
+TC-034	Checkout	Apply Valid Coupon	Verify coupon discount applied	Items in cart	1. Enter valid coupon SAVE10 2. Apply	10% discount applied to total	As Expected	Pass	High
+TC-035	Checkout	Apply Invalid Coupon	Verify invalid coupon error	Items in cart	1. Enter coupon INVALID 2. Apply	Error: Invalid or expired coupon code	As Expected	Pass	Medium
+TC-036	Checkout	Apply Expired Coupon	Verify expired coupon rejected	Items in cart	1. Enter expired coupon SAVE50 2. Apply	Error: Coupon has expired	As Expected	Pass	Medium
+TC-037	Checkout	Order Confirmation Page	Verify confirmation shown	Payment completed	1. Complete checkout	Order confirmation page with order ID displayed	As Expected	Pass	High
+TC-038	Checkout	Order Confirmation Email	Verify confirmation email sent	Order placed	1. Check registered email after placing order	Confirmation email received with order details	As Expected	Pass	Medium
+TC-039	Order History	View Order History	Verify orders are listed	User has orders	1. Go to My Orders	All past orders displayed with status	As Expected	Pass	High
+TC-040	Order History	View Order Details	Verify order detail page	User has orders	1. Click on any order	Order items/price/address/status shown correctly	As Expected	Pass	High
+TC-041	Order History	Cancel Order	Verify order cancellation	Order in pending state	1. Open order 2. Click Cancel 3. Confirm	Order status changed to Cancelled	As Expected	Pass	High
+TC-042	Order History	Cancel Delivered Order	Verify cannot cancel delivered order	Order in delivered state	1. Open delivered order 2. Check for Cancel button	Cancel option not available for delivered orders	As Expected	Pass	Medium
+TC-043	Order History	Track Order	Verify order tracking works	Order placed	1. Open order 2. Click Track Order	Tracking timeline displayed	As Expected	Pass	Medium
+TC-044	Profile	View Profile	Verify profile information displayed	User logged in	1. Go to My Profile	Name/email/mobile displayed correctly	As Expected	Pass	Medium
+TC-045	Profile	Update Name	Verify name update	User logged in	1. Edit name 2. Save	Name updated successfully	As Expected	Pass	Medium
+TC-046	Profile	Update Mobile Number	Verify mobile update	User logged in	1. Edit mobile 2. Save	Mobile number updated	As Expected	Pass	Medium
+TC-047	Profile	Change Password - Valid	Verify password change	User logged in	1. Go to Change Password 2. Enter old and new passwords 3. Save	Password changed successfully and user re-authenticated	As Expected	Pass	High
+TC-048	Profile	Change Password - Wrong Old Password	Verify error on wrong old password	User logged in	1. Enter incorrect old password 2. Save	Error: Old password is incorrect	As Expected	Pass	High
+TC-049	UI Testing	Responsive Design - Mobile	Verify app is responsive on mobile	App open in mobile view	1. Open app on 375px viewport	All elements visible and no horizontal scroll	As Expected	Pass	Medium
+TC-050	UI Testing	Page Load Time	Verify homepage loads within 3 seconds	App open	1. Open homepage 2. Measure load time	Page loads within 3 seconds	As Expected	Pass	Medium
+TC-051	UI Testing	Broken Links	Verify no broken links on main pages	App open	1. Check all nav links on homepage and product page	All links navigate to correct pages	As Expected	Pass	Low
+TC-052	UI Testing	Form Field Placeholder Text	Verify placeholders visible	App open	1. Open registration form	All fields have appropriate placeholder text	As Expected	Pass	Low
+TC-053	Regression	Login After Password Change	Verify login with new password	Password changed	1. Logout 2. Login with new password	Login successful	As Expected	Pass	High
+TC-054	Regression	Cart After Product Price Update	Verify cart reflects updated price	Item in cart	1. Admin updates product price 2. Open cart	Cart shows updated price	As Expected	Pass	High
+TC-055	Sanity	Homepage Loads	Verify homepage accessible	App deployed	1. Open app URL	Homepage loads without errors	As Expected	Pass	High
