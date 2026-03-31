@@ -1,0 +1,30 @@
+Test Execution Report â€“ ShopEase E-Commerce Web Application					
+Tester: Alok Thokale					
+Execution Period: October 2024					
+Build Version: v1.2.0					
+					
+MODULE SUMMARY					
+Module	Total TCs	Passed	Failed	Blocked	Pass %
+Registration	6	5	1	0	83%
+Login	4	4	0	0	100%
+Product Search	7	7	0	0	100%
+Product Detail	3	2	1	0	67%
+Cart	7	5	2	0	71%
+Checkout	9	7	1	1	78%
+Order History	5	4	1	0	80%
+Profile	5	5	0	0	100%
+UI Testing	4	3	1	0	75%
+Regression	2	2	0	0	100%
+Sanity	1	1	0	0	100%
+TOTAL	53	45	7	1	85%
+					
+DEFECT SUMMARY					
+Severity	Count	Fixed	Open		
+Critical	3	2	1		
+High	7	6	1		
+Medium	6	4	2		
+Low	3	2	1		
+Total	19	14	5		
+					
+OVERALL STATUS: CONDITIONALLY PASSED					
+Notes: 2 critical bugs remain open (BUG-008 fixed; BUG-011 and BUG-018 fix verified). Session timeout (BUG-016) deferred to next sprint. Sign-off pending on open items.					
